@@ -1,28 +1,104 @@
-.App {
+.app {
   text-align: center;
+  height: 5000px;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.logo {
+  max-width: 100%;
+  height: auto;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.header {
+  background-color: black;
+  height: 205px;
   color: white;
 }
-
-.App-title {
-  font-size: 1.5em;
+.top-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 140px;
+  margin: 0px;
 }
-
-.App-intro {
-  font-size: large;
+.bottom-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 65px;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.banner {
+  height: 90px;
+}
+.search-input {
+  align-items: flex-end;
+  justify-content: flex;
+  height: 50px;
+}
+.featured {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 1px 2px 5px #a9a9a9;
+}
+.featured-content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
+}
+.categories {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.search {
+  width: 60%;
+}
+.search-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-box {
+  width: 90%;
+}
+.header-side {
+  padding-top: 20px;
+  padding-left: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+}
+.account {
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.account-buttons {
+  padding-top: 35px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.category-header {
+  box-shadow: 1px 1px 5px #a9a9a9;
+}
+.category-header-text {
+  padding: 10px;
+  color: #999999;
+}
+.side-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: inherit;
+  border: 1px;
+  border-color: #a9a9a9;
 }
