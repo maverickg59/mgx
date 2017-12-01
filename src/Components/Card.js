@@ -10,19 +10,21 @@ const CardComponent = props => {
 
       <div className="cardInfo">
         <div className="cardLineOne">
-          <p className="cardTextBold">{props.name}</p>
-          <p className="cardTextBold">{props.price}</p>
+          <div className="cardTextBold">{props.name}</div>
+          <div className="cardTextBold">{props.price}</div>
         </div>
         <div className="cardLineTwo">
-          <p className="cardTextBold">{props.city}</p>
-          <p className="cardTextLight">{props.rating}</p>
+          <div className="cardTextBold">{props.city}</div>
+          <div className="cardTextLight">{props.rating}</div>
         </div>
       </div>
       <Button>
         <div className="addCartButton" style={{ color: 'white' }}>
-          <MdAddShoppingCart size={50} />
+          <MdAddShoppingCart size={30} />
+          <div>
+            <p className="cardButtonText">Add to Cart</p>
+          </div>
         </div>
-        Add to Cart
       </Button>
     </div>
   )

@@ -17,7 +17,7 @@ const NavBar = props => {
       <Button>Eyewear</Button>
       <Button>Heated</Button>
       <Button>Rain</Button>
-      <Button>Protection</Button>
+      <Button>Armor</Button>
       <Button>Electronics</Button>
       <Button>Accessories</Button>
       <Button>Parts</Button>

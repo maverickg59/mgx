@@ -8,7 +8,17 @@ import Image from './Components/Image'
 import ListItemModal from './Components/ListItemModal'
 import MyCart from './Components/MyCart'
 import MyAccount from './Components/MyAccount'
+import Banner from './Components/Banner'
 import Card from './Components/Card'
+import OneStar from './Components/Ratings/OneStar'
+import OneFiveStar from './Components/Ratings/OneFiveStar'
+import TwoStar from './Components/Ratings/TwoStar'
+import TwoFiveStar from './Components/Ratings/TwoFiveStar'
+import ThreeStar from './Components/Ratings/ThreeStar'
+import ThreeFiveStar from './Components/Ratings/ThreeFiveStar'
+import FourStar from './Components/Ratings/FourStar'
+import FourFiveStar from './Components/Ratings/FourFiveStar'
+import FiveStar from './Components/Ratings/FiveStar'
 
 class App extends Component {
   constructor(props) {
@@ -24,12 +34,16 @@ class App extends Component {
           <div className="top-header">
             <div className="header-side">
               <div>
-                <Image className="logo" url={require('./Components/logo.png')} alt="MotoGX Logo" />
+                <Image
+                  className="logo"
+                  url={require('./Components/MotoGXLogo.png')}
+                  alt="MotoGX Logo"
+                />
               </div>
             </div>
             <div className="search">
               <div className="banner">
-                <p>banner</p>
+                <Banner />
               </div>
               <div className="search-input">
                 <div className="search-box">
@@ -74,21 +88,21 @@ class App extends Component {
               name="AGV Helmet"
               price="$80.00"
               city="Tucson, AZ"
-              rating="4.5/5"
+              rating={<FourStar />}
               src="https://content.motosport.com/images/items/large/AGH/AGH005N/X001.jpg"
             />
             <Card
               name="Sedici Boots"
               price="$110.00"
               city="Bethlehem, PA"
-              rating="4.25/5"
+              rating={<FourFiveStar />}
               src="https://images-na.ssl-images-amazon.com/images/I/61K8vuRuQpL._SL1000_.jpg"
             />
             <Card
               name="Alpinestars Gloves"
               price="$35.00"
               city="Denver, CO"
-              rating="3.5/5"
+              rating={<ThreeStar />}
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRviM_FqDw1Kf03wbVxjXlzCjYnh-W1_qT_DLUxjtpU8C51AtrY"
             />
           </div>
@@ -106,28 +120,28 @@ class App extends Component {
             name="Alpinestars One Piece"
             price="$450.00"
             city="Longmont, CO"
-            rating="4.5/5"
+            rating={<FourFiveStar />}
             src="https://www.alpinestars.com/media/catalog/product/cache/small_image/360x360/beff4985b56e3afdbeabfc89641a4582/3/1/3156017_1236_gp-tech-v2-tech-air-compatible_1pc_suit.jpg"
           />
           <Card
             name="Rev'It One Piece"
             price="$325.00"
             city="Phoenix, AZ"
-            rating="4/5"
+            rating={<FourStar />}
             src="http://www.visordown.com/sites/default/files/revit%20replica.jpg"
           />
           <Card
             name="Bilt One Piece"
             price="$35.00"
             city="Temple, TX"
-            rating="3/5"
+            rating={<ThreeStar />}
             src="https://www.cyclegear.com/_a/product_images/0189/5426/bilt_predator_one_piece_perforated_leather_motorcycle_suit_black_white.jpg"
           />
           <Card
             name="Dainese One Piece"
             price="$650.00"
             city="Salt Lake City, UT"
-            rating="4.5/5"
+            rating={<FourFiveStar />}
             src="http://www.visordown.com/sites/default/files/revit%20replica.jpg"
           />
         </div>
