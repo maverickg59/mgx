@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-import ListItem from './ListItem'
+import ListItem from './MyAccountItem'
 import MdAccountBox from 'react-icons/lib/md/account-box'
 
 class MyAccountModal extends React.Component {

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import './App.css'
-import MdChevronRight from 'react-icons/lib/md/chevron-right'
-import MdChevronLeft from 'react-icons/lib/md/chevron-left'
+import { MdChevronRight, MdChevronLeft } from './Components'
+
 import SearchBox from './Components/SearchBox'
 import NavBar from './Components/NavBar'
 import Image from './Components/Image'
-import ListItemModal from './Components/ListItemModal'
-import MyCart from './Components/MyCart'
-import MyAccount from './Components/MyAccount'
+import ListItemModal from './Components/ListItem/ListItemModal'
+import MyCart from './Components/MyCart/MyCartModal'
+import MyAccount from './Components/MyAccount/MyAccountModal'
 import Banner from './Components/Banner'
 import Card from './Components/Card'
 import OneStar from './Components/Ratings/OneStar'
@@ -27,7 +27,12 @@ class App extends Component {
     this.nothing = 'nothing'
   }
 
+  componentWillMount() {
+    console.log('The home page has mounted')
+  }
+
   render() {
+    // return <div></div>
     return (
       <div className="app">
         <header className="header">
