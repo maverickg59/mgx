@@ -24,12 +24,13 @@ class ListItemModal extends React.Component {
   upload(formSelector = '.listItemForm', url = 'https://mgx-api.herokuapp.com/api/v1/items') {
     const formData = new FormData(document.querySelector(formSelector))
     var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://mgx-api.herokuapp.com/api/v1/items', true);
+        xhr.open('POST', 'https://mgx-api.herokuapp.com/api/v1/items', true)
         xhr.onload = function () {
           if (xhr.status === 200) {
-            console.log('The file uploaded successfully.......');
+            console.log('The file uploaded successfully...')
+            alert('Your item was added successfull!')
           } else {
-            console.log('An error occurred while uploading the file. Try again');
+            console.log('An error occurred while uploading the file. Try again')
           }
         };
         xhr.send(formData);

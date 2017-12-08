@@ -10,12 +10,11 @@ import Banner from './Components/Banner'
 import Featured from './Components/HomePage/Featured'
 import Section from './Components/CategorySection/Section'
 import MegaNavBar from './Components/MegaNavBar'
+import Footer from './Components/HomePage/Footer'
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props)
-
-    this.nothing = 'nothing'
   }
 
   componentWillMount() {
@@ -69,19 +68,9 @@ class App extends Component {
             <MegaNavBar />
           </div>
         </header>
-
-        <div>
-          <Featured />
-        </div>
-
-        <footer>
-          <div className="header">
-            <p>hi</p>
-          </div>
-        </footer>
+        <Featured />
+        <Footer />
       </div>
     )
   }
 }
-
-export default App

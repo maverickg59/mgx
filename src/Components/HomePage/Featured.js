@@ -25,6 +25,10 @@ class Featured extends Component {
     this.fetchData = this.fetchData.bind(this)
   }
 
+  componentDidUpdate() {
+    console.log('Featured section has updated!')
+  }
+
   fetchData() {
     return fetch('https://mgx-api.herokuapp.com/api/v1/items')
       .then(response => response.json())

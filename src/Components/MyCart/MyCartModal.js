@@ -31,7 +31,7 @@ class MyCartModal extends React.Component {
         </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>List an item for sale:</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Items in your cart:</ModalHeader>
 
           <ModalBody>
             <ListItem

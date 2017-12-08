@@ -2,7 +2,7 @@ import React from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import './Components.css'
 
-export default class Example extends React.Component {
+export default class MegaNavBar extends React.Component {
   constructor(props) {
     super(props);
 
@@ -32,11 +32,12 @@ export default class Example extends React.Component {
     });
   }
 
+
   render() {
     return (
       <div className="meganavbar">
       <div className="thirds">
-      <Dropdown isOpen={this.state.dropdownOne} toggle={this.toggleOne}>
+      <Dropdown isOpen={this.state.dropdownOne} toggle={this.toggleOne} onMouseOver={this.toggleOne} onMouseOut={this.toggleOne}>
         <DropdownToggle style={{ 'fontSize': '25px', 'fontWeight': '700' }}  className="dropdown" color="black" caret>
           GEAR
         </DropdownToggle>
@@ -48,7 +49,7 @@ export default class Example extends React.Component {
       </Dropdown>
       </div>
       <div className="thirds">
-      <Dropdown isOpen={this.state.dropdownTwo} toggle={this.toggleTwo}>
+      <Dropdown isOpen={this.state.dropdownTwo} toggle={this.toggleTwo} onMouseOver={this.toggleTwo} onMouseOut={this.toggleTwo}>
         <DropdownToggle style={{ 'fontSize': '25px', 'fontWeight': '700' }} className="dropdown" color="black" caret>
           PARTS
         </DropdownToggle>
@@ -60,7 +61,7 @@ export default class Example extends React.Component {
       </Dropdown>
       </div>
       <div className="thirds">
-      <Dropdown isOpen={this.state.dropdownThree} toggle={this.toggleThree}>
+      <Dropdown isOpen={this.state.dropdownThree} toggle={this.toggleThree} onMouseOver={this.toggleThree} onMouseOut={this.toggleThree}>
         <DropdownToggle style={{ 'fontSize': '25px', 'fontWeight': '700' }} className="dropdown" color="black" caret>
           MOTORCYCLES
         </DropdownToggle>
