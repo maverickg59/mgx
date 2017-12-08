@@ -4,11 +4,19 @@ import { Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 export default class ListItem extends React.Component {
   render() {
     return (
-      <Form>
+      <Form className="listItemForm" encType="multipart/form-data">
         <FormGroup>
-          <Label for="exampleSelect">{this.props.categoryLabel}</Label>
-          <Input type="select" name="select" id="exampleSelect" value={this.props.catValue} onChange={this.props.onChangeCat}>
-            <option value={0}>Helmets</option>
+
+          <Label for="gender">{this.props.genderLabel}</Label>
+          <Input type="select" id="gender" name="gender" value={this.props.genderValue} onChange={this.props.onChangeGender}>
+            <option value={0} defaultValue>Mens</option>
+            <option value={1}>Womens</option>
+            <option value={2}>Unisex</option>
+          </Input>
+
+          <Label for="category_id">{this.props.categoryLabel}</Label>
+          <Input type="select" id="category_id" name="category_id" value={this.props.catValue} onChange={this.props.onChangeCat}>
+            <option value={0} defaultValue>Helmets</option>
             <option value={1}>Gloves</option>
             <option value={2}>Boots</option>
             <option value={3}>Jackets</option>
@@ -27,14 +35,14 @@ export default class ListItem extends React.Component {
           </Input>
 
           <Label for="brand">{this.props.brandLabel}</Label>
-          <Input id="brand" placeholder="Item brand:" value={this.props.brandValue} onChange={this.props.onChangeBrand}/>
+          <Input id="brand" name="brand" placeholder="Item brand:" value={this.props.brandValue} onChange={this.props.onChangeBrand}/>
 
           <Label for="model">{this.props.modelLabel}</Label>
-          <Input id="model" placeholder="Item model:" value={this.props.modelValue} onChange={this.props.onChangeModel}/>
+          <Input id="model" name="model" placeholder="Item model:" value={this.props.modelValue} onChange={this.props.onChangeModel}/>
 
-          <Label for="size">{this.props.sizeLabel}</Label>
-          <Input id="size" type="select" name="size" value={this.props.sizeValue} onChange={this.props.onChangeSize}>
-            <option value={0}>2XS</option>
+          <Label for="size_id">{this.props.sizeLabel}</Label>
+          <Input type="select" id="size_id" name="size_id" value={this.props.sizeValue} onChange={this.props.onChangeSize}>
+            <option value={0} defaultValue>2XS</option>
             <option value={1}>XS</option>
             <option value={2}>SM</option>
             <option value={3}>MD</option>
@@ -45,9 +53,9 @@ export default class ListItem extends React.Component {
             <option value={8}>4XL</option>
           </Input>
 
-          <Label for="condition">{this.props.conditionLabel}</Label>
-          <Input id="condition" type="select" name="condition" value={this.props.conditionValue} onChange={this.props.onChangeCondition}>
-            <option value={0}>1 Star</option>
+          <Label for="condition_id">{this.props.conditionLabel}</Label>
+          <Input type="select" id="condition_id" name="condition_id" value={this.props.conditionValue} onChange={this.props.onChangeCondition}>
+            <option value={0} defaultValue>1 Star</option>
             <option value={1}>1.5 Stars</option>
             <option value={2}>2 Stars</option>
             <option value={3}>2.5 Stars</option>
@@ -58,12 +66,15 @@ export default class ListItem extends React.Component {
             <option value={8}>5 Stars</option>
           </Input>
 
-          <Label for="city">{this.props.cityLabel}</Label>
-          <Input id="city" placeholder="City:" value={this.props.cityValue} onChange={this.props.onChangeCity}/>
+          <Label for="price">{this.props.priceLabel}</Label>
+          <Input id="price" name="price" placeholder="List price:" value={this.props.priceValue} onChange={this.props.onChangePrice}/>
 
-          <Label for="state">{this.props.stateLabel}</Label>
-          <Input id="state" type="select" name="state" value={this.props.stateValue} onChange={this.props.onChangeState}>
-            <option value={0}>Alabama</option>
+          <Label for="city">{this.props.cityLabel}</Label>
+          <Input id="city" name="city" placeholder="City:" value={this.props.cityValue} onChange={this.props.onChangeCity}/>
+
+          <Label for="state_id">{this.props.stateLabel}</Label>
+          <Input type="select" id="state_id" name="state_id" value={this.props.stateValue} onChange={this.props.onChangeState}>
+            <option value={0} defaultValue>Alabama</option>
             <option value={1}>Alaska</option>
             <option value={2}>Arizona</option>
             <option value={3}>Arkansas</option>
@@ -117,17 +128,17 @@ export default class ListItem extends React.Component {
         </FormGroup>
 
         <FormGroup>
-          <Label for="exampleFile">{this.props.fileButtonLabel}</Label>
-          <Input type="file" name="file" id="exampleFile" value={this.props.fileValue} onChange={this.props.onChangeFile}/>
-          <FormText color="muted">{this.props.formText}</FormText>
+          <Label for="featured">{this.props.featuredLabel}</Label>
+          <Input type="select" id="featured" name="featured" value={this.props.featuredValue} onChange={this.props.onChangeFeatured}>
+            <option value={true} defaultValue>Yes</option>
+            <option value={false}>No</option>
+          </Input>
         </FormGroup>
 
         <FormGroup>
-          <Label for="featuredSelect">{this.props.featuredLabel}</Label>
-          <Input type="select" name="select" id="featuredSelect" value={this.props.featuredValue} onChange={this.props.onChangeFeatured}>
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
-          </Input>
+          <Label for="file">{this.props.fileButtonLabel}</Label>
+          <Input type="file" id="file" name="file" value={this.props.fileValue} onChange={this.props.onChangeFile}/>
+          <FormText color="muted">{this.props.formText}</FormText>
         </FormGroup>
 
       </Form>

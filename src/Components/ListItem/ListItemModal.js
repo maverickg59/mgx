@@ -8,29 +8,11 @@ class ListItemModal extends React.Component {
     super(props)
     this.state = {
       modal: false,
-      category_id: 0,
-      brand: '',
-      model: '',
-      city: '',
-      size_id: 0,
-      state_id: 0,
-      condition_id: 0,
-      photo_url: 'https://images-na.ssl-images-amazon.com/images/I/71OXnW5NlAL._SL1200_.jpg',
-      file: '',
-      featured: true
-    }
 
+    }
     this.toggle = this.toggle.bind(this)
     this.post = this.post.bind(this)
-    this.handleChangeCat = this.handleChangeCat.bind(this)
-    this.handleChangeBrand = this.handleChangeBrand.bind(this)
-    this.handleChangeModel = this.handleChangeModel.bind(this)
-    this.handleChangeSize = this.handleChangeSize.bind(this)
-    this.handleChangeCondition = this.handleChangeCondition.bind(this)
-    this.handleChangeCity = this.handleChangeCity.bind(this)
-    this.handleChangeState = this.handleChangeState.bind(this)
-    this.handleChangeFile = this.handleChangeFile.bind(this)
-    this.handleChangeFeatured = this.handleChangeFeatured.bind(this)
+    this.upload = this.upload.bind(this)
   }
 
   toggle() {
@@ -39,56 +21,25 @@ class ListItemModal extends React.Component {
     })
   }
 
-  post() {
-    const listItem = {
-      category_id: this.state.category_id,
-      brand: this.state.brand,
-      model: this.state.model,
-      city: this.state.city,
-      size_id: this.state.size_id,
-      state_id: this.state.state_id,
-      condition_id: this.state.condition_id,
-      photo_url: this.state.photo_url,
-      featured: this.state.featured
-    }
-    console.log("here is your object: " + JSON.stringify(listItem))
-    fetch('https://mgx-api.herokuapp.com/api/v1/items', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(listItem)
-    }).then(this.toggle)
+  upload(formSelector = '.listItemForm', url = 'https://mgx-api.herokuapp.com/api/v1/items') {
+    const formData = new FormData(document.querySelector(formSelector))
+    var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://mgx-api.herokuapp.com/api/v1/items', true);
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            console.log('The file uploaded successfully.......');
+          } else {
+            console.log('An error occurred while uploading the file. Try again');
+          }
+        };
+        xhr.send(formData);
   }
 
-  handleChangeCat(event) {
-    this.setState({ category_id: parseInt(event.target.value, 10) })
+  post() {
+    this.upload()
+    this.toggle()
   }
-  handleChangeBrand(event) {
-    this.setState({ brand: event.target.value })
-  }
-  handleChangeModel(event) {
-    this.setState({ model: event.target.value })
-  }
-  handleChangeSize(event) {
-    this.setState({ size_id: parseInt(event.target.value, 10) })
-  }
-  handleChangeCondition(event) {
-    this.setState({ condition_id: parseInt(event.target.value, 10) })
-  }
-  handleChangeCity(event) {
-    this.setState({ city: event.target.value })
-  }
-  handleChangeState(event) {
-    this.setState({ state_id: parseInt(event.target.value, 10) })
-  }
-  handleChangeFile(event) {
-    this.setState({ file: event.target.value })
-  }
-  handleChangeFeatured(event) {
-    this.setState({ featured: !this.state.featured })
-  }
+
   render() {
     const labelText = "Would you like your item to be featured on the home page? Featured items sell faster than others! We charge an additional 2.5% for this service, but you won't be charged the fee if your item sells from it's standard category listing."
     return (
@@ -106,43 +57,18 @@ class ListItemModal extends React.Component {
 
           <ModalBody>
             <ListItem
-              categoryLabel="Choose a gear category:"
+              genderLabel="Gender:"
+              categoryLabel="Gear category:"
               brandLabel="Brand:"
               modelLabel="Model:"
               sizeLabel="Size:"
               conditionLabel="Condition:"
+              priceLabel="Price:"
               cityLabel="City:"
               stateLabel="State:"
               fileButtonLabel="Upload a photo:"
               formText="Choose a photo with good lighting that highlights the features of your item."
               featuredLabel={labelText}
-
-              catValue={this.state.category_id}
-              onChangeCat={this.handleChangeCat}
-
-              brandValue={this.state.brand}
-              onChangeBrand={this.handleChangeBrand}
-
-              modelValue={this.state.model}
-              onChangeModel={this.handleChangeModel}
-
-              sizeValue={this.state.size_id}
-              onChangeSize={this.handleChangeSize}
-
-              conditionValue={this.state.condition_id}
-              onChangeCondition={this.handleChangeCondition}
-
-              cityValue={this.state.city}
-              onChangeCity={this.handleChangeCity}
-
-              stateValue={this.state.state_id}
-              onChangeState={this.handleChangeState}
-
-              fileValue={this.state.file}
-              onChangeFile={this.handleChangeFile}
-
-              featuredValue={this.state.featured}
-              onChangeFeatured={this.handleChangeFeatured}
 
             />
           </ModalBody>
