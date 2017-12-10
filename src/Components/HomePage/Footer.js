@@ -1,5 +1,4 @@
 import React from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import '../Components.css'
 
 export default class Footer extends React.Component {

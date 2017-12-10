@@ -8,18 +8,10 @@ import MyCart from './Components/MyCart/MyCartModal'
 import MyAccount from './Components/MyAccount/MyAccountModal'
 import Banner from './Components/Banner'
 import Featured from './Components/HomePage/Featured'
-import Section from './Components/CategorySection/Section'
 import MegaNavBar from './Components/MegaNavBar'
 import Footer from './Components/HomePage/Footer'
 
 export default class App extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentWillMount() {
-    console.log('The home page has mounted')
-  }
 
   render() {
     return (

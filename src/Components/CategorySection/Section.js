@@ -1,17 +1,6 @@
 import React, { Component } from 'react'
 import '../../App.css'
 
-import Card from '../../Components/Card'
-import OneStar from '../../Components/Ratings/OneStar'
-import OneFiveStar from '../../Components/Ratings/OneFiveStar'
-import TwoStar from '../../Components/Ratings/TwoStar'
-import TwoFiveStar from '../../Components/Ratings/TwoFiveStar'
-import ThreeStar from '../../Components/Ratings/ThreeStar'
-import ThreeFiveStar from '../../Components/Ratings/ThreeFiveStar'
-import FourStar from '../../Components/Ratings/FourStar'
-import FourFiveStar from '../../Components/Ratings/FourFiveStar'
-import FiveStar from '../../Components/Ratings/FiveStar'
-
 class Section extends Component {
   constructor(props) {
     super(props)

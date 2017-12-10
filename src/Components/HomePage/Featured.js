@@ -1,32 +1,29 @@
 import React, { Component } from 'react'
 import '../../App.css'
-// import { MdChevronRight, MdChevronLeft } from '../../Components'
 
-import Card from '../../Components/Card'
-import OneStar from '../../Components/Ratings/OneStar'
-import OneFiveStar from '../../Components/Ratings/OneFiveStar'
-import TwoStar from '../../Components/Ratings/TwoStar'
-import TwoFiveStar from '../../Components/Ratings/TwoFiveStar'
-import ThreeStar from '../../Components/Ratings/ThreeStar'
-import ThreeFiveStar from '../../Components/Ratings/ThreeFiveStar'
-import FourStar from '../../Components/Ratings/FourStar'
-import FourFiveStar from '../../Components/Ratings/FourFiveStar'
-import FiveStar from '../../Components/Ratings/FiveStar'
+import Card from '../Card'
+import OneStar from '../Ratings/OneStar'
+import OneFiveStar from '../Ratings/OneFiveStar'
+import TwoStar from '../Ratings/TwoStar'
+import TwoFiveStar from '../Ratings/TwoFiveStar'
+import ThreeStar from '../Ratings/ThreeStar'
+import ThreeFiveStar from '../Ratings/ThreeFiveStar'
+import FourStar from '../Ratings/FourStar'
+import FourFiveStar from '../Ratings/FourFiveStar'
+import FiveStar from '../Ratings/FiveStar'
 
-class Featured extends Component {
+export default class Featured extends Component {
   constructor(props) {
     super(props)
     this.state = {
       apiData: '',
-      featured: []
+      featured: [],
     }
-
-    this.nothing = "this.nothing.bind(this)"
     this.fetchData = this.fetchData.bind(this)
   }
 
-  componentDidUpdate() {
-    console.log('Featured section has updated!')
+  componentDidMount() {
+    this.fetchData()
   }
 
   fetchData() {
@@ -54,12 +51,10 @@ class Featured extends Component {
       })
   }
 
-  componentDidMount() {
-    this.fetchData()
-  }
-
   render() {
-    // let features = this.state.featured.length > 0 ? this.state.featured[0].brand : '[initial]'
+    // let features = this.state.featured.length > 0 ? this.state.featured[0].brand : '[initial
+    const featuredCart = sessionStorage.getItem('cartData')
+    let parsedFeatureCart = JSON.parse(featuredCart)
     return (
       <div>
         <div className="category-header">
@@ -68,11 +63,24 @@ class Featured extends Component {
         <div className="featured">
           <div className="featured-content">
             {this.state.featured.map(featureItem => <Card
+              key={featureItem.id}
               name={featureItem.brand}
               price={"$" + featureItem.price}
               city={featureItem.city}
               rating={featureItem.condition_id}
               src={featureItem.photo_url}
+              onClick={() => {
+                if (parsedFeatureCart[0].id === 'cartFakie') {
+                  sessionStorage.setItem('cartData', JSON.stringify([featureItem]))
+                } else {
+                  let addToCart = parsedFeatureCart.concat([featureItem])
+                  sessionStorage.setItem('cartData', JSON.stringify(addToCart))
+                }
+              }}
+              onMouseOut={() => {
+                let myCart = sessionStorage.getItem('cartData')
+                console.log(myCart)
+              }}
             />
             )}
           </div>
@@ -81,5 +89,3 @@ class Featured extends Component {
     )
   }
 }
-
-export default Featured

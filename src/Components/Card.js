@@ -18,7 +18,7 @@ const CardComponent = props => {
           <div className="cardTextLight">{props.rating}</div>
         </div>
       </div>
-      <Button>
+      <Button onClick={props.onClick} onMouseOver={props.onMouseOver} onMouseOut={props.onMouseOut}>
         <div className="addCartButton" style={{ color: 'white' }}>
           <MdAddShoppingCart size={30} />
           <div>

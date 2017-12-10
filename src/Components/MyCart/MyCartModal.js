@@ -1,16 +1,36 @@
 import React from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-import ListItem from './MyCartItem'
+import '../Components.css'
+import MyCartItem from './MyCartItem'
 import MdShoppingCart from 'react-icons/lib/md/shopping-cart'
 
 class MyCartModal extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      modal: false
+      modal: false,
+      cart: []
     }
-
     this.toggle = this.toggle.bind(this)
+    this.forceUpdateHandler = this.forceUpdateHandler.bind(this)
+  }
+
+  componentWillMount() {
+    const cartObject = [{
+      id: 'cartFakie',
+      category_id: 0,
+      price: "0.00",
+      brand: "",
+      model: "",
+      city: "",
+      size_id: 0,
+      state_id: 0,
+      condition_id: 0,
+      photo_url: "https://s3-us-west-2.amazonaws.com/mgx-photos/empty_cart.png",
+      featured: true,
+      gender: 0
+    },]
+    sessionStorage.setItem('cartData', JSON.stringify(cartObject))
   }
 
   toggle() {
@@ -19,7 +39,14 @@ class MyCartModal extends React.Component {
     })
   }
 
+  forceUpdateHandler(){
+    this.forceUpdate();
+  }
+
   render() {
+    const myCart = sessionStorage.getItem('cartData')
+    let myParsedCart = JSON.parse(myCart)
+    let totalPrice = '80.00'
     return (
       <div>
         <Button
@@ -34,19 +61,35 @@ class MyCartModal extends React.Component {
           <ModalHeader toggle={this.toggle}>Items in your cart:</ModalHeader>
 
           <ModalBody>
-            <ListItem
-              categoryLabel="Choose a gear category:"
-              fileButtonLabel="Upload a photo:"
-              formText="Choose a photo with good lighting that highlights the features of your item."
-            />
+            <div>
+              {myParsedCart.map(item => <MyCartItem
+                key={item.id}
+                image={item.photo_url}
+                brand={item.brand}
+                model={item.model}
+                price={'$' + item.price}
+                deleteClick={() => {
+                  console.log('hello')
+                }}
+              />
+              )}
+            </div>
+            <div className="cart-total">
+              <h5>
+                Total Price: {myParsedCart.photo_url}
+              </h5>
+              <h5>
+                ${totalPrice}
+              </h5>
+            </div>
           </ModalBody>
 
           <ModalFooter>
             <Button color="primary" onClick={this.toggle}>
-              Do Something
-            </Button>{' '}
+              Proceed to Checkout
+            </Button>
             <Button color="secondary" onClick={this.toggle}>
-              Cancel
+              Continue Shopping
             </Button>
           </ModalFooter>
         </Modal>

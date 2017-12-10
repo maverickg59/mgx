@@ -1,25 +1,29 @@
 import React from 'react'
-import { Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import '../Components.css'
+import { Button } from 'reactstrap'
 
-export default class MyCartItem extends React.Component {
-  render() {
-    return (
+const MyCartItem = props => {
+  return (
+    <div>
       <div className="cart-card">
-        <img style={{height: '30%', width: '30%', borderRadius: 10 }} src='https://s3-us-west-2.amazonaws.com/mgx-photos/zx10wheelie.jpg' alt="An item for sale." />
+        <img style={{ height: '25%', width: '25%', borderRadius: 10, marginLeft: 20, border: '1px solid #D3D3D3' }} src={props.image} alt="An item for sale." />
         <div className="cart-card-info">
-
             <div>
-              <p>Kawasaki ZX10R</p>
-              <p>Wheelie</p>
+              <p className="cart-text">{props.brand}</p>
+              <p className="cart-text">{props.model}</p>
             </div>
-
             <div>
-              <p>$FREE</p>
+              <p className="cart-text">{props.price}</p>
             </div>
-
+            <div>
+              <Button color="danger" onClick={props.deleteClick}>
+                Delete
+              </Button>
+          </div>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
+
+export default MyCartItem
