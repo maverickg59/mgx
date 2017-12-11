@@ -26,7 +26,7 @@ class MyCartModal extends React.Component {
       size_id: 0,
       state_id: 0,
       condition_id: 0,
-      photo_url: "https://s3-us-west-2.amazonaws.com/mgx-photos/empty_cart.png",
+      photo_url: "https://s3-us-west-2.amazonaws.com/mgx-photos/empty_cart+(1).png",
       featured: true,
       gender: 0
     },]
@@ -80,7 +80,7 @@ class MyCartModal extends React.Component {
                     size_id: 0,
                     state_id: 0,
                     condition_id: 0,
-                    photo_url: "https://s3-us-west-2.amazonaws.com/mgx-photos/empty_cart.png",
+                    photo_url: "https://s3-us-west-2.amazonaws.com/mgx-photos/empty_cart+(1).png",
                     featured: true,
                     gender: 0
                   },]
