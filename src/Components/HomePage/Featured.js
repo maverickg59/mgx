@@ -52,9 +52,6 @@ export default class Featured extends Component {
   }
 
   render() {
-    // let features = this.state.featured.length > 0 ? this.state.featured[0].brand : '[initial
-    const featuredCart = sessionStorage.getItem('cartData')
-    let parsedFeatureCart = JSON.parse(featuredCart)
     return (
       <div>
         <div className="category-header">
@@ -70,16 +67,20 @@ export default class Featured extends Component {
               rating={featureItem.condition_id}
               src={featureItem.photo_url}
               onClick={() => {
+                const featuredCart = sessionStorage.getItem('cartData')
+                let parsedFeatureCart = JSON.parse(featuredCart)
+                const result = parsedFeatureCart.filter(item => item.id === featureItem.id)
                 if (parsedFeatureCart[0].id === 'cartFakie') {
                   sessionStorage.setItem('cartData', JSON.stringify([featureItem]))
-                } else {
+                } else if (result.length === 0) {
                   let addToCart = parsedFeatureCart.concat([featureItem])
                   sessionStorage.setItem('cartData', JSON.stringify(addToCart))
+                } else {
+                  console.log('This item is already in your cart bud!')
                 }
               }}
               onMouseOut={() => {
-                let myCart = sessionStorage.getItem('cartData')
-                console.log(myCart)
+                console.log("Aww, tks for scratching my back :)")
               }}
             />
             )}

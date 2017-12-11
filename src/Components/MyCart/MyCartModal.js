@@ -63,13 +63,37 @@ class MyCartModal extends React.Component {
           <ModalBody>
             <div>
               {myParsedCart.map(item => <MyCartItem
+                itemId={item.id}
                 key={item.id}
                 image={item.photo_url}
                 brand={item.brand}
                 model={item.model}
                 price={'$' + item.price}
                 deleteClick={() => {
-                  console.log('hello')
+                  const cartObject = [{
+                    id: 'cartFakie',
+                    category_id: 0,
+                    price: "0.00",
+                    brand: "",
+                    model: "",
+                    city: "",
+                    size_id: 0,
+                    state_id: 0,
+                    condition_id: 0,
+                    photo_url: "https://s3-us-west-2.amazonaws.com/mgx-photos/empty_cart.png",
+                    featured: true,
+                    gender: 0
+                  },]
+                  const featuredCart = sessionStorage.getItem('cartData')
+                  let parsedFeatureCart = JSON.parse(featuredCart)
+                  let newCart = parsedFeatureCart.filter(object => object.id !== item.id)
+                  if (parsedFeatureCart.length <= 1) {
+                    sessionStorage.setItem('cartData', JSON.stringify(cartObject))
+                    this.forceUpdateHandler()
+                  } else {
+                    sessionStorage.setItem('cartData', JSON.stringify(newCart))
+                    this.forceUpdateHandler()
+                  }
                 }}
               />
               )}
