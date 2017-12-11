@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../../App.css'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 import Card from '../Card'
 import OneStar from '../Ratings/OneStar'
@@ -18,12 +19,25 @@ export default class Featured extends Component {
     this.state = {
       apiData: '',
       featured: [],
+      modal: false
     }
     this.fetchData = this.fetchData.bind(this)
+    this.toggle = this.toggle.bind(this)
+    this.forceUpdateHandler = this.forceUpdateHandler.bind(this)
   }
 
   componentDidMount() {
     this.fetchData()
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
+
+  forceUpdateHandler(){
+    this.forceUpdate();
   }
 
   fetchData() {
@@ -53,6 +67,7 @@ export default class Featured extends Component {
 
   render() {
     return (
+
       <div>
         <div className="category-header">
           <h1 className="category-header-text">Featured Items</h1>
