@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-import ListItem from './MyAccountItem'
+import MyAccountItem from './MyAccountItem'
 import MdAccountBox from 'react-icons/lib/md/account-box'
 
 class MyAccountModal extends React.Component {
@@ -31,22 +31,21 @@ class MyAccountModal extends React.Component {
         </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>List an item for sale:</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Your Account Info:</ModalHeader>
 
           <ModalBody>
-            <ListItem
-              categoryLabel="Choose a gear category:"
-              fileButtonLabel="Upload a photo:"
-              formText="Choose a photo with good lighting that highlights the features of your item."
+            <MyAccountItem
+              email="Email"
+              password="Password"
             />
           </ModalBody>
 
           <ModalFooter>
             <Button color="primary" onClick={this.toggle}>
-              Do Something
-            </Button>{' '}
+              Login
+            </Button>
             <Button color="secondary" onClick={this.toggle}>
-              Cancel
+              Register
             </Button>
           </ModalFooter>
         </Modal>

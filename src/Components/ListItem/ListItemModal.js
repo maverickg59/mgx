@@ -13,12 +13,7 @@ class ListItemModal extends React.Component {
     this.toggle = this.toggle.bind(this)
     this.post = this.post.bind(this)
     this.upload = this.upload.bind(this)
-  }
-
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    })
+    this.forceUpdateHandler = this.forceUpdateHandler.bind(this)
   }
 
   upload(formSelector = '.listItemForm', url = 'https://mgx-api.herokuapp.com/api/v1/items') {
@@ -28,7 +23,7 @@ class ListItemModal extends React.Component {
         xhr.onload = function () {
           if (xhr.status === 200) {
             console.log('The file uploaded successfully...')
-            alert('Your item was added successfull!')
+            alert('Your item was added successfully!')
           } else {
             console.log('An error occurred while uploading the file. Try again')
           }
@@ -36,9 +31,20 @@ class ListItemModal extends React.Component {
         xhr.send(formData);
   }
 
+  forceUpdateHandler(){
+    this.forceUpdate();
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
+
   post() {
     this.upload()
     this.toggle()
+    this.forceUpdateHandler()
   }
 
   render() {

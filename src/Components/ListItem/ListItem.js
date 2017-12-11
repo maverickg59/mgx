@@ -8,14 +8,14 @@ export default class ListItem extends React.Component {
         <FormGroup>
 
           <Label for="gender">{this.props.genderLabel}</Label>
-          <Input type="select" id="gender" name="gender" value={this.props.genderValue} onChange={this.props.onChangeGender}>
+          <Input required type="select" id="gender" name="gender" value={this.props.genderValue} onChange={this.props.onChangeGender}>
             <option value={0} defaultValue>Mens</option>
             <option value={1}>Womens</option>
             <option value={2}>Unisex</option>
           </Input>
 
           <Label for="category_id">{this.props.categoryLabel}</Label>
-          <Input type="select" id="category_id" name="category_id" value={this.props.catValue} onChange={this.props.onChangeCat}>
+          <Input required type="select" id="category_id" name="category_id" value={this.props.catValue} onChange={this.props.onChangeCat}>
             <option value={0} defaultValue>Helmets</option>
             <option value={1}>Gloves</option>
             <option value={2}>Boots</option>
@@ -35,13 +35,13 @@ export default class ListItem extends React.Component {
           </Input>
 
           <Label for="brand">{this.props.brandLabel}</Label>
-          <Input id="brand" name="brand" placeholder="Item brand:" value={this.props.brandValue} onChange={this.props.onChangeBrand}/>
+          <Input required id="brand" name="brand" placeholder="Item brand:" value={this.props.brandValue} onChange={this.props.onChangeBrand}/>
 
           <Label for="model">{this.props.modelLabel}</Label>
-          <Input id="model" name="model" placeholder="Item model:" value={this.props.modelValue} onChange={this.props.onChangeModel}/>
+          <Input required id="model" name="model" placeholder="Item model:" value={this.props.modelValue} onChange={this.props.onChangeModel}/>
 
           <Label for="size_id">{this.props.sizeLabel}</Label>
-          <Input type="select" id="size_id" name="size_id" value={this.props.sizeValue} onChange={this.props.onChangeSize}>
+          <Input required type="select" id="size_id" name="size_id" value={this.props.sizeValue} onChange={this.props.onChangeSize}>
             <option value={0} defaultValue>2XS</option>
             <option value={1}>XS</option>
             <option value={2}>SM</option>
@@ -54,7 +54,7 @@ export default class ListItem extends React.Component {
           </Input>
 
           <Label for="condition_id">{this.props.conditionLabel}</Label>
-          <Input type="select" id="condition_id" name="condition_id" value={this.props.conditionValue} onChange={this.props.onChangeCondition}>
+          <Input required type="select" id="condition_id" name="condition_id" value={this.props.conditionValue} onChange={this.props.onChangeCondition}>
             <option value={0} defaultValue>1 Star</option>
             <option value={1}>1.5 Stars</option>
             <option value={2}>2 Stars</option>
@@ -67,13 +67,13 @@ export default class ListItem extends React.Component {
           </Input>
 
           <Label for="price">{this.props.priceLabel}</Label>
-          <Input id="price" name="price" placeholder="List price:" value={this.props.priceValue} onChange={this.props.onChangePrice}/>
+          <Input required type="number" id="price" name="price" placeholder="Ex: 25.00" value={this.props.priceValue} onChange={this.props.onChangePrice}/>
 
           <Label for="city">{this.props.cityLabel}</Label>
-          <Input id="city" name="city" placeholder="City:" value={this.props.cityValue} onChange={this.props.onChangeCity}/>
+          <Input required id="city" name="city" placeholder="City:" value={this.props.cityValue} onChange={this.props.onChangeCity}/>
 
           <Label for="state_id">{this.props.stateLabel}</Label>
-          <Input type="select" id="state_id" name="state_id" value={this.props.stateValue} onChange={this.props.onChangeState}>
+          <Input required type="select" id="state_id" name="state_id" value={this.props.stateValue} onChange={this.props.onChangeState}>
             <option value={0} defaultValue>Alabama</option>
             <option value={1}>Alaska</option>
             <option value={2}>Arizona</option>
@@ -129,7 +129,7 @@ export default class ListItem extends React.Component {
 
         <FormGroup>
           <Label for="featured">{this.props.featuredLabel}</Label>
-          <Input type="select" id="featured" name="featured" value={this.props.featuredValue} onChange={this.props.onChangeFeatured}>
+          <Input required type="select" id="featured" name="featured" value={this.props.featuredValue} onChange={this.props.onChangeFeatured}>
             <option value={true} defaultValue>Yes</option>
             <option value={false}>No</option>
           </Input>
@@ -137,7 +137,7 @@ export default class ListItem extends React.Component {
 
         <FormGroup>
           <Label for="file">{this.props.fileButtonLabel}</Label>
-          <Input type="file" id="file" name="file" value={this.props.fileValue} onChange={this.props.onChangeFile}/>
+          <Input required type="file" id="file" name="file" value={this.props.fileValue} onChange={this.props.onChangeFile}/>
           <FormText color="muted">{this.props.formText}</FormText>
         </FormGroup>
 
