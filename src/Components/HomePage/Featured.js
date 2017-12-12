@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import '../../App.css'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 import Card from '../Card'
 import OneStar from '../Ratings/OneStar'
@@ -67,7 +66,6 @@ export default class Featured extends Component {
 
   render() {
     return (
-
       <div>
         <div className="category-header">
           <h1 className="category-header-text">Featured Items</h1>
@@ -81,6 +79,29 @@ export default class Featured extends Component {
               city={featureItem.city}
               rating={featureItem.condition_id}
               src={featureItem.photo_url}
+              itemModalImage={featureItem.photo_url}
+              itemModalCategory={featureItem.category_id}
+              itemModalBrand={featureItem.brand}
+              itemModalModel={featureItem.model}
+              itemModalGender={featureItem.gender}
+              itemModalSize={featureItem.size_id}
+              itemModalCondition={featureItem.condition_id}
+              itemModalPrice={featureItem.price}
+              itemModalState={featureItem.state_id}
+              itemModalCity={featureItem.city}
+              onModalButtonClick={() => {
+                const featuredCart = sessionStorage.getItem('cartData')
+                let parsedFeatureCart = JSON.parse(featuredCart)
+                const result = parsedFeatureCart.filter(item => item.id === featureItem.id)
+                if (parsedFeatureCart[0].id === 'cartFakie') {
+                  sessionStorage.setItem('cartData', JSON.stringify([featureItem]))
+                } else if (result.length === 0) {
+                  let addToCart = parsedFeatureCart.concat([featureItem])
+                  sessionStorage.setItem('cartData', JSON.stringify(addToCart))
+                } else {
+                  console.log('This item is already in your cart bud!')
+                }
+              }}
               onClick={() => {
                 const featuredCart = sessionStorage.getItem('cartData')
                 let parsedFeatureCart = JSON.parse(featuredCart)

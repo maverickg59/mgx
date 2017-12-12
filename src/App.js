@@ -11,8 +11,9 @@ import Featured from './Components/HomePage/Featured'
 import MegaNavBar from './Components/MegaNavBar'
 import Footer from './Components/HomePage/Footer'
 
-export default class App extends Component {
+require('dotenv').config()
 
+export default class App extends Component {
   render() {
     return (
       <div className="app">

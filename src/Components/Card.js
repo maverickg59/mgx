@@ -46,6 +46,7 @@ export default class CardComponent extends React.Component {
             </div>
           </div>
         </Button>
+
         <Button color='success' onClick={this.props.onClick}>
           <div className="addCartButton" style={{ color: 'white' }}>
             <MdAddShoppingCart size={30} />
@@ -54,22 +55,56 @@ export default class CardComponent extends React.Component {
             </div>
           </div>
         </Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader>
 
-          </ModalHeader>
-          <ModalBody>
-
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>
-              Add To Cart
-            </Button>
-            <Button color="secondary" onClick={this.toggle}>
-              Continue Shopping
-            </Button>
-          </ModalFooter>
-        </Modal>
+          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+            <ModalHeader style={{ display: 'flex', justifyContent: 'center', margin: 0, padding: 5 }}>
+              <div style={{ display: 'flex', width: '100%' }}>
+                <p>
+                  {this.props.itemModalBrand}
+                </p>
+                <p>&#160;&#160;</p>
+                <p>
+                  {this.props.itemModalModel}
+                </p>
+              </div>
+            </ModalHeader>
+            <ModalBody onClick={this.toggle} style={{ display: 'flex', justifyContent: 'center', height: 'auto', width: 500 }}>
+              <div>
+                <img style={{ height: 400, width: 'auto', borderRadius: 10 }} src={this.props.itemModalImage}/>
+                <div>
+                  <p>
+                    Brand: {this.props.itemModalBrand}
+                  </p>
+                  <p>
+                    Model: {this.props.itemModalModel}
+                  </p>
+                  <p>
+                    Gender: {this.props.itemModalGender}
+                  </p>
+                  <p>
+                    Size_id: {this.props.itemModalSize}
+                  </p>
+                  <p>
+                    Condition: {this.props.itemModalCondition}
+                  </p>
+                  <p>
+                    Price: {this.props.itemModalPrice}
+                  </p>
+                  <p>
+                    Location: {this.props.itemModalCity}, {this.props.itemModalState}
+                  </p>
+                </div>
+              </div>
+            </ModalBody>
+            <ModalFooter onClick={this.toggle} style={{ display: 'flex', justifyContent: 'space-around' }}>
+              <Button color="primary" onClick={this.props.onModalButtonClick}>
+                Add To Cart
+              </Button>
+              <Button color="secondary" onClick={this.toggle}>
+                Continue Shopping
+              </Button>
+            </ModalFooter>
+          </Modal>
       </div>
       )
     }

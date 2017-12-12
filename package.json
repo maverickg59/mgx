@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.0.0-beta",
+    "dotenv": "^4.0.0",
+    "firebase": "^4.8.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-icons": "^2.2.7",

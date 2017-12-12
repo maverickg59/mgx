@@ -4,9 +4,6 @@ import { Button } from 'reactstrap'
 import MdHighlightRemove from 'react-icons/lib/md/highlight-remove'
 
 const MyCartItem = props => {
-  const cartItemCart = sessionStorage.getItem('cartData')
-  let parsedCartItemCart = JSON.parse(cartItemCart)
-
   return (
     <div>
       <div className="cart-card">

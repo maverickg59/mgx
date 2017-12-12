@@ -4,7 +4,7 @@ import '../Components.css'
 import MyCartItem from './MyCartItem'
 import MdShoppingCart from 'react-icons/lib/md/shopping-cart'
 
-class MyCartModal extends React.Component {
+export default class MyCartModal extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -46,7 +46,10 @@ class MyCartModal extends React.Component {
   render() {
     const myCart = sessionStorage.getItem('cartData')
     let myParsedCart = JSON.parse(myCart)
-    let totalPrice = '80.00'
+    let totalPrice = 0
+    let addPrice = myParsedCart.forEach(item => {
+      totalPrice = (parseInt(totalPrice, 10) + parseInt(item.price, 10) + ".00")
+    })
     return (
       <div>
         <Button
@@ -100,7 +103,7 @@ class MyCartModal extends React.Component {
             </div>
             <div className="cart-total">
               <h5>
-                Total Price: {myParsedCart.photo_url}
+                Total Price:
               </h5>
               <h5>
                 ${totalPrice}
@@ -121,5 +124,3 @@ class MyCartModal extends React.Component {
     )
   }
 }
-
-export default MyCartModal
