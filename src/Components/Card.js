@@ -59,18 +59,18 @@ export default class CardComponent extends React.Component {
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader style={{ display: 'flex', justifyContent: 'center', margin: 0, padding: 5 }}>
               <div style={{ display: 'flex', width: '100%' }}>
-                <p>
+                <p style={{ margin: 0 }}>
                   {this.props.itemModalBrand}
                 </p>
-                <p>&#160;&#160;</p>
-                <p>
+                <p style={{ margin: 0 }}>&#160;&#160;</p>
+                <p style={{ margin: 0 }}>
                   {this.props.itemModalModel}
                 </p>
               </div>
             </ModalHeader>
-            <ModalBody onClick={this.toggle} style={{ display: 'flex', justifyContent: 'center', height: 'auto', width: 500 }}>
+            <ModalBody onClick={this.toggle} style={{ display: 'flex', justifyContent: 'center', height: 'auto', width: 500, padding: 0 }}>
               <div>
-                <img style={{ height: 400, width: 'auto', borderRadius: 10 }} src={this.props.itemModalImage}/>
+                <img style={{ height: 400, width: 400, borderRadius: 10, margin: 15 }} alt="Item for sale." src={this.props.itemModalImage}/>
                 <div>
                   <p>
                     Brand: {this.props.itemModalBrand}
@@ -88,7 +88,7 @@ export default class CardComponent extends React.Component {
                     Condition: {this.props.itemModalCondition}
                   </p>
                   <p>
-                    Price: {this.props.itemModalPrice}
+                    Price: ${this.props.itemModalPrice}
                   </p>
                   <p>
                     Location: {this.props.itemModalCity}, {this.props.itemModalState}
@@ -104,6 +104,12 @@ export default class CardComponent extends React.Component {
                 Continue Shopping
               </Button>
             </ModalFooter>
+          </Modal>
+
+          <Modal onClick={this.toggleAddedModal} isOpen={this.state.addedModal}>
+            <ModalHeader>
+              Added to cart!
+            </ModalHeader>
           </Modal>
       </div>
       )

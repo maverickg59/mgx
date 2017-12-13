@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../../App.css'
+import { Alert, Modal, ModalHeader } from 'reactstrap';
 
 import Card from '../Card'
 import OneStar from '../Ratings/OneStar'
@@ -18,11 +19,13 @@ export default class Featured extends Component {
     this.state = {
       apiData: '',
       featured: [],
-      modal: false
+      modal: false,
+      addedModal: false,
     }
     this.fetchData = this.fetchData.bind(this)
     this.toggle = this.toggle.bind(this)
     this.forceUpdateHandler = this.forceUpdateHandler.bind(this)
+    this.toggleAddedModal = this.toggleAddedModal.bind(this)
   }
 
   componentDidMount() {
@@ -64,7 +67,15 @@ export default class Featured extends Component {
       })
   }
 
+  toggleAddedModal(){
+    this.setState({ addedModal: !this.state.addedModal })
+  }
+
   render() {
+    const addedToCartModalFunction = () => {
+      const docElem = document.getElementsByClassName("addedToCartModal")
+      console.log(docElem)
+    }
     return (
       <div>
         <div className="category-header">
@@ -95,9 +106,11 @@ export default class Featured extends Component {
                 const result = parsedFeatureCart.filter(item => item.id === featureItem.id)
                 if (parsedFeatureCart[0].id === 'cartFakie') {
                   sessionStorage.setItem('cartData', JSON.stringify([featureItem]))
+                  this.toggleAddedModal()
                 } else if (result.length === 0) {
                   let addToCart = parsedFeatureCart.concat([featureItem])
                   sessionStorage.setItem('cartData', JSON.stringify(addToCart))
+                  this.toggleAddedModal()
                 } else {
                   console.log('This item is already in your cart bud!')
                 }
@@ -108,9 +121,11 @@ export default class Featured extends Component {
                 const result = parsedFeatureCart.filter(item => item.id === featureItem.id)
                 if (parsedFeatureCart[0].id === 'cartFakie') {
                   sessionStorage.setItem('cartData', JSON.stringify([featureItem]))
+                  this.toggleAddedModal()
                 } else if (result.length === 0) {
                   let addToCart = parsedFeatureCart.concat([featureItem])
                   sessionStorage.setItem('cartData', JSON.stringify(addToCart))
+                  this.toggleAddedModal()
                 } else {
                   console.log('This item is already in your cart bud!')
                 }
@@ -120,6 +135,11 @@ export default class Featured extends Component {
               }}
             />
             )}
+            <Modal onClick={this.toggleAddedModal}  toggle={this.toggleAddedModal} isOpen={this.state.addedModal}>
+              <ModalHeader toggle={this.toggleAddedModal}>
+                Added to cart!
+              </ModalHeader>
+            </Modal>
           </div>
         </div>
       </div>

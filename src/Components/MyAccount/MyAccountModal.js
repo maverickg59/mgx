@@ -57,6 +57,7 @@ class MyAccountModal extends React.Component {
         return 'Welcome, ' + this.state.user.displayName + '!'
       }
     }
+    
     return (
       <div>
         <Button

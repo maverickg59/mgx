@@ -56,7 +56,6 @@ export default class MyCartModal extends React.Component {
           onClick={this.toggle}
           style={{ backgroundColor: 'black', padding: '0px', margin: '0px', borderColor: 'black' }}
         >
-          {this.props.buttonLabel}
           <MdShoppingCart size={68} style={{ color: '#00FF00' }} />
         </Button>
 
