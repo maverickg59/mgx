@@ -3,7 +3,7 @@ import '../Components.css'
 import { Button } from 'reactstrap'
 import MdHighlightRemove from 'react-icons/lib/md/highlight-remove'
 
-const MyCartItem = props => {
+export const MyCartItem = props => {
   return (
     <div>
       <div className="cart-card">
@@ -26,5 +26,3 @@ const MyCartItem = props => {
     </div>
   )
 }
-
-export default MyCartItem

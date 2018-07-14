@@ -49,16 +49,21 @@ export default class MegaNavBar extends React.Component {
       </Dropdown>
       </div>
       <div className="thirds">
+
       <Dropdown isOpen={this.state.dropdownTwo} toggle={this.toggleTwo} onMouseOver={this.toggleTwo} onMouseOut={this.toggleTwo}>
+
         <DropdownToggle style={{ 'fontSize': '25px', 'fontWeight': '700' }} className="dropdown" color="black" caret>
           PARTS
         </DropdownToggle>
+
         <DropdownMenu className="dropdownMenu">
           <DropdownItem>Another Action</DropdownItem>
           <DropdownItem divider />
           <DropdownItem>Another Action</DropdownItem>
         </DropdownMenu>
+
       </Dropdown>
+      
       </div>
       <div className="thirds">
       <Dropdown isOpen={this.state.dropdownThree} toggle={this.toggleThree} onMouseOver={this.toggleThree} onMouseOut={this.toggleThree}>
